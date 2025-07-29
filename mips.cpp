@@ -2,7 +2,15 @@
 #include "instructionFetch.h"
 using namespace std;
 
-uint32_t ARR[] = {1,2,3,4,5};
+uint32_t ARR[] = {
+    0b00000000000000000000000000000000,
+    0b00000000000000000000000000000001,
+    0b00000000000000000000000000000010,
+    0b00000000000000000000000000000100,
+    0b00000000000000000000000000001000,
+    0b00000000000000000000000000010000,
+    
+};
 //for now there are representations of instructions, just to test if the code is working correctly
 
 void run(){
