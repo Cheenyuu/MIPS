@@ -10,8 +10,8 @@ void run(){
     uint32_t mem(uint32_t instructionMem[], uint32_t currentInst);
     void IFID(uint32_t* addr, uint32_t* inst);*/
 
-    mem(ARR, 0);
-    
+    uint32_t instruction = mem(ARR, 0);
+    cout<<instruction;
 }
 
 
