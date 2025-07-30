@@ -2,6 +2,7 @@
 #include "instructionFetch.h"
 using namespace std;
 
+//for now there are representations of instructions, just to test if the code is working correctly
 uint32_t ARR[] = {
     0b00000000000000000000000000000000,
     0b00000000000000000000000000000001,
@@ -11,7 +12,9 @@ uint32_t ARR[] = {
     0b00000000000000000000000000010000,
     
 };
-//for now there are representations of instructions, just to test if the code is working correctly
+
+//we will simulate 10 registers
+uint32_t reg[] = {0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}; //0-9 reg
 
 void run(){
     /*uint32_t PC_adder(uint32_t inst);
@@ -37,7 +40,7 @@ void run(){
 }
 
 
+
 int main(){
     run();
-
 }

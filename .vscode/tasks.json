@@ -9,6 +9,7 @@
                 "-g",
                 "${workspaceFolder}/mips.cpp",
                 "${workspaceFolder}/instructionFetch.cpp",
+                "${workspaceFolder}/regFile.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],

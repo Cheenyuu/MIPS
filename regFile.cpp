@@ -18,17 +18,32 @@ uint32_t funct = 1000000; //6
 
 uint32_t inst = (opcode << 26) | (rs << 21) | (rt << 16) | (rd << 11) | (shamt << 6) | (funct);
 
-void getInstruction(uint32_t* instruction){
+void setInstruction(uint32_t* instruction){
     inst = *instruction;
 }
 
+
 //https://stackoverflow.com/questions/10090326/how-to-extract-specific-bits-from-a-number-in-c
+uint32_t extract(uint32_t val, int begin, int end){
+    uint32_t mask = (1 << (end - begin)) - 1;
+    //0b1000 - 1 = 0b111
+    return (val >> begin) & mask;
+}
+
 void decode(){
     //R function...
     bool r = true;
     if(r){
-        funct = inst; 
+        funct = extract(inst, 1, 6); 
 
 
     }
+}
+
+void sign_ex(uint32_t imm){
+
+}
+
+void IDEX(){
+
 }
