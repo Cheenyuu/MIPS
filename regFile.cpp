@@ -6,17 +6,7 @@ using namespace std;
 
 uint32_t seqPC, RS1, RS2, IMM;
 
-//we will simulate 10 registers...
-uint32_t reg[] = {0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}; //0-9 reg
-
-uint32_t opcode = 0b000000; //6
-uint32_t rs = 0b00001; //5
-uint32_t rt = 0b00010; //5
-uint32_t rd = 0b00100; //5
-uint32_t shamt = 00000; //5
-uint32_t funct = 1000000; //6
-
-uint32_t inst = (opcode << 26) | (rs << 21) | (rt << 16) | (rd << 11) | (shamt << 6) | (funct);
+uint32_t opcode, rs, rt, rd, shamt, funct, inst;
 
 void setInstruction(uint32_t* instruction){
     inst = *instruction;
@@ -32,18 +22,45 @@ uint32_t extract(uint32_t val, int begin, int end){
 
 void decode(){
     //R function...
-    bool r = true;
-    if(r){
-        funct = extract(inst, 1, 6); 
-
-
+    bool i = false;
+    bool j = false;
+    opcode = extract(inst, 26, 32);
+    if(opcode == 0x0){
+        //rtype function
+        cout<<"RTYPE"<<endl;
+        funct = extract(inst, 0, 6);
+        shamt = extract(inst, 6, 11);
+        rd = extract(inst, 11, 16);
+        rt = extract(inst, 16, 21);
+        rs = extract(inst, 21, 26);
+    }
+    if(i){
+        /*
+        immediate = extract(inst, 0, 16);
+        rt = extract(inst, 16, 21);
+        rs = extract(inst, 21, 26);
+        opcode = extract(inst, 26, 32);
+        */
+    }
+    if(j){
+        /*
+        address = extract(inst, 0, 26);
+        opcode = extract(inst, 26, 32);
+        */
     }
 }
 
-void sign_ex(uint32_t imm){
-
+//this is meant to change the size of a binary number...
+uint32_t sign_ex(uint16_t imm){
+    uint32_t imm_32 = (uint16_t) imm;
+    return imm_32;
 }
 
-void IDEX(){
-
+void IDEX(uint32_t *operation, uint32_t *rs_val, uint32_t *rt_val, uint32_t *rd_val, uint32_t *shamt_r, uint32_t *funct_r){
+    *operation = opcode;
+    *rs_val = rs;
+    *rt_val = rt;
+    *rd_val = rd;
+    *shamt_r = shamt;
+    *funct_r = funct;
 }
