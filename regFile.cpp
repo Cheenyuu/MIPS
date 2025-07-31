@@ -63,4 +63,6 @@ void IDEX(uint32_t *operation, uint32_t *rs_val, uint32_t *rt_val, uint32_t *rd_
     *rd_val = rd;
     *shamt_r = shamt;
     *funct_r = funct;
+
+    cout<<"opreation: "<<opcode<<" register 1: "<<rs<<" register 2: "<<rt<<" register destination: "<<rd<<" shamt: "<<shamt<<" funct: "<<funct<<endl;
 }

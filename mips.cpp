@@ -24,6 +24,7 @@ void run(){
     uint32_t instruction = 0x0;
     uint32_t currentAddress = 0x0;
 
+    uint32_t op, rs, rt, rd, shamt, funct;
 
     bool running = true;
     while(running){
@@ -36,6 +37,7 @@ void run(){
         setInstruction(&instruction);
         decode();
         IFID(&currentAddress, &instruction);
+        IDEX(&op, &rs, &rt, &rd, &shamt, &funct);
         PC_adder(&currentAddress);        
     }
 
